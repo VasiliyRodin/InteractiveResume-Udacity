@@ -6,7 +6,8 @@ var bio = {
         "email": "**********@gmail.com",
         "mobile": "123-456-7890",
         "github": "VasiliyRodin",
-        "twitter": "@shutinputin"
+        "twitter": "@shutinputin",
+        "location": "Dublin, CA 94568"
     },
     "welcomeMessage": "Welcome to my interactive resume.",
     "skills": [
@@ -82,8 +83,9 @@ if (bio.contact !== null) {
     $("#topContacts").append(formattedMobile);
     var formattedMobile = HTMLgithub.replace("%data%", bio.contact.github);
     $("#topContacts").append(formattedMobile);
-
-}
+    var formattedPicture = HTMLbioPic.replace("%data%", bio.picUrl);
+    $("header").append(formattedPicture);
+};
 
 if (bio.skills.length > 0) {
     $("#header").append(HTMLskillsStart);
@@ -95,7 +97,7 @@ if (bio.skills.length > 0) {
     $("#skills").append(formattedSkill);
     formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
     $("#skills").append(formattedSkill);
-}
+};
 
 function displayWork() {
     for (job in work.jobs) {
@@ -113,7 +115,7 @@ function displayWork() {
         var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
         $(".work-entry:last").append(formattedDescription);
     }
-}
+};
 
 projects.display = function() {
     for (project in projects.projectsCompleted) {
@@ -130,8 +132,7 @@ projects.display = function() {
         var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projectsCompleted[project].description);
         $(".project-entry:last").append(formattedDescription);
     }
-}
-projects.display();
+};
 
 function inName(name) {
     name = name.trim().split(" ");
@@ -142,8 +143,7 @@ function inName(name) {
 }
 $("#skills").append(internationalizeButton);
 
-
-
-
+$("$mapDiv").append(googleMap);
 
 displayWork();
+projects.display();
