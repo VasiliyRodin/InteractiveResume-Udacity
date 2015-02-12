@@ -1,105 +1,69 @@
-
-var bio = {
-    "name": "Vasiliy Rodin",
-    "role": "Web Developer",
-    "contact": {
-        "email": "**********@gmail.com",
-        "mobile": "123-456-7890",
-        "github": "VasiliyRodin",
-        "twitter": "@shutinputin",
-        "location": "Dublin, CA 94568"
-    },
-    "welcomeMessage": "Welcome to my interactive resume.",
-    "skills": [
-        "Experience in HTML", "Experience in CSS", "jhdfkjsdhfkhskhfd", "asdaskjdajsd"],
-    "picUrl": "images/fry.jpg",
-};
-
-var education = {
-    "schools": [
-        {
-            "name": "CSU East Bay",
-            "location": "Hayward , CA",
-            "degree": "Bachelors Degree",
-            "majors": "Computer Science",
-            "years": "2010-2014"
-        }
-    ],
-    "onlineCourses": [
-        {
-            "name": "Udacity",
-            "years": "2014-2015",
-            "degree": "Nano Degree"
-        }
-    ]
-};
-var work = {
-    "jobs": [
-        {
-            "employer": "ReServe Interactive",
-            "dates": "2013-2015",
-            "position": "Support Technician",
-            "description": "Provide technical and network support to customers over the phone or by email.",
-            "location": "2021 W. Las Positas Court Suite 127 Livermore, CA 94551"
+function displayBio() {
+    var bio = {
+        "name": "Vasiliy Rodin",
+        "role": "Web Developer",
+        "contacts": {
+            "email": "**********@gmail.com",
+            "mobile": "123-456-7890",
+            "github": "VasiliyRodin",
+            "twitter": "@shutinputin",
+            "location": "Dublin, CA 94568"
         },
-        {
-            "employer": "Centric Software",
-            "dates": "2015-Present",
-            "position": "Quality Assurance Engineer",
-            "description": "Stress test and migrate databases to new instaltions of the software.",
-            "location": "485 Alberto Way #200, Los Gatos, CA 95032"
-        }
-    ]
-};
-var projects = {
-    "projectsCompleted": [
-        {
-            "name": "BootStrap Practice Website",
-            "years": "2014-2015",
-            "url": "www.vasiliyrodin.com",
-            "description": "This is a website that I use to practice front end web development."
-        },
-        {
-            "name": "Solar Calendar",
-            "years": "2014-2015",
-            "url": "www.vasiliyrodin.com/calendar/index.html",
-            "description": "Calculates time of day and it tells you whether you should use electricity during that certain time of day."
-        }
-    ]
-};
+        "welcomeMessage": "Welcome to my interactive resume.",
+        "skills": [
+            "Experience in HTML", "Experience in CSS", "jhdfkjsdhfkhskhfd", "asdaskjdajsd"],
+        "picUrl": "images/fry.jpg",
+    };
+    if (bio.skills.length > 0) {
+        $("#header").append(HTMLskillsStart);
+        var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+        $("#skills").append(formattedSkill);
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+        $("#skills").append(formattedSkill);
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+        $("#skills").append(formattedSkill);
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+        $("#skills").append(formattedSkill);
+    }
+    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+    var formattedPicture = HTMLbioPic.replace("%data%" , bio.picUrl);
+    $("#header").prepend(formattedRole);
+    $("#header").prepend(formattedName);
+    $("#topContacts").append(formattedPicture);
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").append()
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    $("#topContacts").append(formattedMobile);
 
-if (bio.contact !== null) {
-    var formattedMobile = HTMLmobile.replace("%data%", bio.contact.mobile);
-    $("#topContacts").append(formattedMobile);
-    var formattedMobile = HTMLemail.replace("%data%", bio.contact.email);
-    $("#topContacts").append(formattedMobile);
-    var formattedMobile = HTMLtwitter.replace("%data%", bio.contact.twitter);
-    $("#topContacts").append(formattedMobile);
-    var formattedMobile = HTMLgithub.replace("%data%", bio.contact.github);
-    $("#topContacts").append(formattedMobile);
-    var formattedPicture = HTMLbioPic.replace("%data%", bio.picUrl);
-    $("header").append(formattedPicture);
-};
+    var formattedemail = HTMLemail.replace("%data%", bio.contacts.email);
+    $("#topContacts").append(formattedemail);
 
-if (bio.skills.length > 0) {
-    $("#header").append(HTMLskillsStart);
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-    $("#skills").append(formattedSkill);
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-    $("#skills").append(formattedSkill);
-};
+    var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+    $("#topContacts").append(formattedGithub);
+
+    var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+    $("#topContacts").append(formattedTwitter);
+}
 
 function displayWork() {
+    var work = {
+        "jobs": [
+            {
+                "employer": "ReServe Interactive",
+                "dates": "2013-2015",
+                "position": "Support Technician",
+                "description": "Provide technical and network support to customers over the phone or by email.",
+                "location": "2021 W. Las Positas Court Suite 127 Livermore, CA 94551"
+            },
+            {
+                "employer": "Centric Software",
+                "dates": "2015-Present",
+                "position": "Quality Assurance Engineer",
+                "description": "Stress test and migrate databases to new instaltions of the software.",
+                "location": "485 Alberto Way #200, Los Gatos, CA 95032"
+            }
+        ]
+    };
     for (job in work.jobs) {
         $("#workExperience").append(HTMLworkStart);
 
@@ -114,25 +78,92 @@ function displayWork() {
 
         var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
         $(".work-entry:last").append(formattedDescription);
+        
+        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+        $(".work-entry:last").append(formattedLocation);
     }
-};
+}
 
-projects.display = function() {
+function displayProject() {
+    var projects = {
+        "projectsCompleted": [
+            {
+                "name": "BootStrap Practice Website",
+                "years": "2014-2015",
+                "url": "www.vasiliyrodin.com",
+                "description": "This is a website that I use to practice front end web development."
+            },
+            {
+                "name": "Solar Calendar",
+                "years": "2014-2015",
+                "url": "www.vasiliyrodin.com/calendar/index.html",
+                "description": "Calculates time of day and it tells you whether you should use electricity during that certain time of day."
+            }
+        ]
+    };
     for (project in projects.projectsCompleted) {
-        $("#projects").append(HTMLprojectStart);        
+        $("#projects").append(HTMLprojectStart);
         var formattedTittle = HTMLprojectTitle.replace("%data%", projects.projectsCompleted[project].name);
         $(".project-entry:last").append(formattedTittle);
-        
-        var formattedTime = HTMLprojectDates.replace("%data%" , projects.projectsCompleted[project].years);        
+
+        var formattedTime = HTMLprojectDates.replace("%data%", projects.projectsCompleted[project].years);
         $(".project-entry:last").append(formattedTime);
-        
-        var formattedURL = HTMLprojectURL.replace("%data%", projects.projectsCompleted[project].url);
-        $(".project-entry:last").append(formattedURL);
-        
+
         var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projectsCompleted[project].description);
         $(".project-entry:last").append(formattedDescription);
     }
-};
+}
+;
+
+function displayEducation() {
+    var education = {
+        "schools": [
+            {
+                "name": "CSU East Bay",
+                "location": "Hayward , CA",
+                "degree": "Bachelors Degree",
+                "major": "Computer Science",
+                "dates": "2010-2014",
+                "url": "http://www20.csueastbay.edu/"
+            }
+        ],
+        "onlineCourses": [
+            {
+                "title": "Front End Nano Degree",
+                "school": "Udacity",
+                "date": "2014-2015",
+                "url": "https://www.udacity.com/"
+            }
+        ]
+    };
+    for (school in education.schools) {
+        $("#education").append(HTMLschoolStart);
+
+        var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+        var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+        var formattedNameDegree = formattedSchoolName+ formattedSchoolDegree;
+        $(".education-entry:last").append(formattedNameDegree);
+        
+        
+        var formattedSchoolDates = HTMLschoolDegree.replace("%data%", education.schools[school].dates);
+        $(".education-entry:last").append(formattedSchoolDates);
+
+        var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+        $(".education-entry:last").append(formattedSchoolLocation);
+
+        var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+        $(".education-entry:last").append(formattedSchoolMajor);
+    }
+    for (online in education.onlineCourses) {
+        $(".education-entry:last").append(HTMLonlineClasses);
+
+        var formattedOnlineTittle = HTMLonlineTitle.replace("%data%", education.onlineCourses[online].title);
+        var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[online].school);
+        var formattedOnlineTitleSchool = formattedOnlineTittle + formattedOnlineSchool;
+        $(".education-entry:last").append(formattedOnlineTitleSchool);
+    }
+}
+;
 
 function inName(name) {
     name = name.trim().split(" ");
@@ -142,8 +173,10 @@ function inName(name) {
     return name[0] + " " + name[1];
 }
 $("#skills").append(internationalizeButton);
-
 $("#mapDiv").append(googleMap);
 
+
+displayBio();
 displayWork();
-projects.display();
+displayProject();
+displayEducation();
