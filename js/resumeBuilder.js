@@ -143,7 +143,7 @@ function inName(name) {
 }
 $("#skills").append(internationalizeButton);
 
-$("$mapDiv").append(googleMap);
+$("#mapDiv").append(googleMap);
 
 displayWork();
 projects.display();
